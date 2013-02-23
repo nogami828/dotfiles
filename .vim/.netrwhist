@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/hiromitsu-ito/Dropbox/dev/dotfiles/.emacs.d/etc/snippets/cperl-mode'
+let g:netrw_dirhist_2='/Users/hiromitsu-ito'
+let g:netrw_dirhist_3='/Users/hiromitsu-ito/Dropbox/dev/dotfiles/.emacs.d/etc/snippets/cperl-mode'
+let g:netrw_dirhist_4='/Users/hiromitsu-ito/dev/git/yapcasia2012-app/lib/YAPC2012'
+let g:netrw_dirhist_5='/Users/hiromitsu-ito/dev/dotfiles/.emacs.d/elisp/yasnippet'

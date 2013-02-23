@@ -1,0 +1,15 @@
+autodetach on
+bell_msg "^G"
+defkanji utf-8
+defencoding utf-8
+defscrollback 10000
+deflog on
+escape ^Tt
+encoding utf-8 utf-8
+hardstatus alwayslastline "%{= gk}[%m/%d %02c:%s] %{gW} %-w%{= wk}%n %t%{-}%+w %=%{gk}$USER@$HOSTNAME[$LANG] (%l) "
+logfile "$HOME/.screen/screen-%Y%m%d-%n.log"
+startup_message off
+shelltitle "$ |bash"
+shell -bash
+termcapinfo xterm* ti@:te@
+vbell off
