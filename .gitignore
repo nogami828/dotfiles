@@ -1,10 +1,6 @@
 *~
 *.elc
 .dropbox
-.emacs.d/conf
-.emacs.d/etc
-.emacs.d/skk
 .emacs.d/ac-comphist.dat
-.emacs.d/elpa
 .emacs.d/elisp
 
