@@ -2,5 +2,4 @@
 *.elc
 .dropbox
 .emacs.d/ac-comphist.dat
-.emacs.d/elisp
 
