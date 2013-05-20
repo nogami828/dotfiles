@@ -26,6 +26,6 @@
 (global-set-key (kbd "C-l C-l") 'recenter-top-bottom)
 
 ;; mark-sexp 
-(define-key global-map (kbd "C-l m") 'mark-sexp)
+(define-key global-map (kbd "C-l C-p") 'mark-sexp)
 ;; esell
 (define-key global-map (kbd "C-l s") 'eshell)

@@ -34,7 +34,7 @@ stty stop undef
 [[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH 
 
 # PATH
-PATH=$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
+PATH=$HOME/.plenv/bin:$HOME/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 # bash completion
 [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
@@ -45,10 +45,13 @@ PATH=$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 # git branch prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
 
+# plenv
+eval "$(plenv init -)A"
+
 # perlbrew
-if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
-    . $HOME/perl5/perlbrew/etc/bashrc
-fi
+#if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
+#    . $HOME/perl5/perlbrew/etc/bashrc
+#fi
 
 # mysql prompt
 MYSQL_PS1='\u@\h[\d]> '
