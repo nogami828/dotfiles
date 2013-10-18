@@ -46,7 +46,7 @@ PATH=$HOME/.plenv/bin:$HOME/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0:$HOME/.
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
 
 # plenv
-eval "$(plenv init -)A"
+eval "$(plenv init -)"
 
 # perlbrew
 #if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
@@ -68,8 +68,7 @@ alias ls="LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx ls -G"
 alias ll="ls -l"
 alias be="bundle exec"
 alias gid="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
-alias orepan.pl="perl -Mlocal::lib=~/perl5 ~/perl5/perlbrew/perls/perl-5.14.2/bin/orepan.pl"
-alias orepan_index.pl="perl -Mlocal::lib=~/perl5 ~/perl5/perlbrew/perls/perl-5.14.2/bin/orepan_index.pl"
+alias aws="ssh -at mon.ad-stir.com ssh"
 
 # distribution
 if [ `uname` = "Darwin" ]; then

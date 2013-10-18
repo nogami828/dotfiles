@@ -1,4 +1,20 @@
-;; ;;; Perl
+; Perl
+
+(require 'plenv)
+(require 'flymake)
+
+(push '(".+\\.p[ml]$" flymake-perl-init) flymake-allowed-file-name-masks)
+(push '(".+\\.psgi$" flymake-perl-init) flymake-allowed-file-name-masks)
+(push '(".+\\.t$" flymake-perl-init) flymake-allowed-file-name-masks)
+
+(defun flymake-perl-init ()
+  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+         (local-file  (file-relative-name
+                       temp-file
+                       (file-name-directory buffer-file-name))))
+    (list "perl" (list "-MProject::Libs lib_dirs => [qw(local/lib/perl5)]" "-wc" local-file))))
+
 
 ;; cperl-mode
 (defalias 'perl-mode 'cperl-mode)
@@ -28,6 +44,7 @@
      (define-key plcmp-mode-map (kbd "M-TAB") nil)
      (define-key plcmp-mode-map (kbd "M-C-o") 'plcmp-cmd-smart-complete)))
 
+
 ;;; perl-tidy
 (defun perltidy-region ()
   "Run perltidy on the current region."
@@ -51,8 +68,6 @@
     (add-to-list 'ac-sources 'ac-source-my-perl-completion)
     (add-to-list 'ac-sources 'ac-source-dictionary)))
 ( add-hook 'cperl-mode-hook ' my-cperl-mode-hook )
-                                        ;perl-tidy before save
-                                        ;( add-hook 'cperl-mode-hook' 'before-save-hook ' perltidy-defun )
 
 
 ;; perldoc -m を開く
@@ -92,4 +107,5 @@
           (if pop-or-set-flag
               (switch-to-buffer buffer)
             (display-buffer buffer)))))))
+
 

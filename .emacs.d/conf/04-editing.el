@@ -83,7 +83,7 @@
 
 ; auto-save
 (require 'auto-save-buffers)
-(run-with-idle-timer 5 t 'auto-save-buffers)
+(run-with-idle-timer 180 t 'auto-save-buffers)
 
 ; xterm-mouse-mode
 (unless (fboundp 'track-mouse)
