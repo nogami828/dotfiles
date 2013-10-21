@@ -10,7 +10,7 @@
         (add-to-list 'load-path default-directory)
         (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
             (normal-top-level-add-subdirs-to-load-path))))))
-(add-to-load-path "elisp" "conf" "skk")
+(add-to-load-path  "elisp" "conf" "skk")
 
 ;;auto-install
 (when (require 'auto-install nil t)	
@@ -18,6 +18,17 @@
 ;  (auto-install-update-emacswiki-package-name t)
 ;  (auto-install-compatibility-setup)
 ) 
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 
 ;; init loader
 ;; http://coderepos.org/share/browser/lang/elisp/init-loader/init-loader.el
@@ -27,11 +38,7 @@
 (put 'set-goal-column 'disabled nil)
 
 
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
+
 ;(when
 ;    (load
 ;     (expand-file-name "~/.emacs.d/elpa/package.el"))
