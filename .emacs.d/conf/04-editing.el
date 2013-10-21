@@ -105,3 +105,12 @@
 (set-face-foreground 'modeline "#000000")
 ;; mode-line background color
 (set-face-background 'modeline "LightGray")
+
+;;git-gutter
+(global-git-gutter-mode +1)
+(setq git-gutter:separator-sign "|")
+(set-face-foreground 'git-gutter:separator "yellow")
+(add-hook 'cperl-mode-hook 'git-gutter-mode)
+(add-hook 'js2-mode-hook   'git-gutter-mode)
+(add-hook 'php-mode-hook   'git-gutter-mode)
+(add-hook 'ruby-mode-hook  'git-gutter-mode)
