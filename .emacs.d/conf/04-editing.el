@@ -130,3 +130,7 @@
 
 ;; Revert current hunk
 (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+
+;; quickrun
+(require 'quickrun)
+(global-set-key (kbd "C-x r") 'quickrun)
