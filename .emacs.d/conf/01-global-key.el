@@ -14,6 +14,7 @@
 (define-key global-map (kbd "C-o") 'other-window)
 (define-key global-map (kbd "C-\\") 'undo)
 
+
 ;; 折り返しトグルコマンド
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
 

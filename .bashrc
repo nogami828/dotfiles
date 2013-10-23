@@ -89,3 +89,5 @@ fi
 # extra setting
 [ -f ~/bashrc/proxy ] && . ~/bashrc/proxy
 
+# screen clipboard
+[[ ! -f /tmp/screen-exchange ]] && touch /tmp/screen-exchange
