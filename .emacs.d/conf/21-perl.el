@@ -20,6 +20,8 @@
 (defalias 'perl-mode 'cperl-mode)
 (add-to-list 'auto-mode-alist '("\\.psgi$" . cperl-mode))
 (add-to-list 'auto-mode-alist '("\\.t\\'"  . cperl-mode))
+(add-to-list 'auto-mode-alist '("cpanfile"  . cperl-mode))
+
 (eval-after-load "cperl-mode"
   '(progn
      (cperl-set-style "PerlStyle")

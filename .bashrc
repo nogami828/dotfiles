@@ -6,6 +6,9 @@ ulimit -c 0
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
+# default editor
+export EDITOR=emacs
+
 # pager
 export PAGER=less
 
