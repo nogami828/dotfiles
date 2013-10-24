@@ -102,9 +102,9 @@
 (which-function-mode 1)
 
 ;; mode-line  color
-(set-face-foreground 'modeline "#000000")
+;(set-face-foreground 'modeline "#000000")
 ;; mode-line background color
-(set-face-background 'modeline "LightGray")
+;(set-face-background 'modeline "LightGray")
 
 ;;git-gutter
 (global-git-gutter-mode +1)
