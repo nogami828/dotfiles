@@ -7,7 +7,7 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
 # default editor
-export EDITOR=emacs
+export EDITOR=vim
 
 # pager
 export PAGER=less
@@ -37,24 +37,24 @@ stty stop undef
 [[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH 
 
 # PATH
-PATH=$HOME/.plenv/bin:$HOME/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
+PATH=/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 # bash completion
 [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
 
 # rbenv
-[[ -d "$HOME/.rbenv" ]] && eval "$(rbenv init -);"
+[[ -d "$HOME/.rbenv" ]] && eval "$(rbenv init -);" && export export PATH=$HOME/.rbenv/bin:$PATH
+
+# plenv
+eval "$(plenv init -)"
+[[ -d "$HOME/.plenv" ]] && eval "$(plenv init -);" && export export PATH=$HOME/.env/bin:$PATH
 
 # git branch prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
 
-# plenv
-eval "$(plenv init -)"
-
-# perlbrew
-#if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
-#    . $HOME/perl5/perlbrew/etc/bashrc
-#fi
+if [[ -f ~/.nodebrew/nodebrew ]]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
 
 # mysql prompt
 MYSQL_PS1='\u@\h[\d]> '
@@ -78,19 +78,20 @@ if [ `uname` = "Darwin" ]; then
   alias e="/Applications/Emacs.app/Contents/MacOS/Emacs -nw";
   alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw";
   alias zcat="gzcat"
-  [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
+[[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
 
   # z
-  [[ -f `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
+[[ -f `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
 elif [ `uname` = "Linux" ]; then
   alias e="emacs -nw"
   alias emacs="emacs -nw"
   [[ -f /etc/bash_completion ]] && . /etc/bash_completion
   [[ -f ~/local/bin/z.sh ]] && . ~/local/bin/z.sh
 fi
+# for emacsclient
+[[ -d "$TMPDIR" ]] && export TMPDIR=`getconf DARWIN_USER_TEMP_DIR`
 
-# extra setting
-[ -f ~/bashrc/proxy ] && . ~/bashrc/proxy
+
 
 # screen clipboard
 [[ ! -f /tmp/screen-exchange ]] && touch /tmp/screen-exchange
