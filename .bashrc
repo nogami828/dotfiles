@@ -7,7 +7,7 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
 # default editor
-export EDITOR=emacsclient
+export EDITOR=vim
 
 # pager
 export PAGER=less
