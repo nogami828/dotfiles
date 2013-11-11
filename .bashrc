@@ -7,7 +7,7 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 
 # default editor
-export EDITOR=vim
+export EDITOR=emacsclient
 
 # pager
 export PAGER=less
@@ -75,7 +75,7 @@ alias aws="ssh -at mon.ad-stir.com ssh"
 
 # distribution
 if [ `uname` = "Darwin" ]; then
-  alias e="/Applications/Emacs.app/Contents/MacOS/Emacs -nw";
+  alias e="emacsclient";
   alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw";
   alias zcat="gzcat"
 [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
@@ -83,8 +83,7 @@ if [ `uname` = "Darwin" ]; then
   # z
 [[ -f `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
 elif [ `uname` = "Linux" ]; then
-  alias e="emacs -nw"
-  alias emacs="emacs -nw"
+  alias e="emacsclient"
   [[ -f /etc/bash_completion ]] && . /etc/bash_completion
   [[ -f ~/local/bin/z.sh ]] && . ~/local/bin/z.sh
 fi
