@@ -75,12 +75,8 @@ alias aws="ssh -at mon.ad-stir.com ssh"
 
 # distribution
 if [ `uname` = "Darwin" ]; then
-  alias e="emacs -nw";
-  alias ec="emacsclient -n";
-  alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw";
   alias zcat="gzcat"
 [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
-
   # z
 [[ -f `brew --prefix`/etc/profile.d/z.sh ]] && . `brew --prefix`/etc/profile.d/z.sh
 elif [ `uname` = "Linux" ]; then
@@ -95,3 +91,9 @@ fi
 
 # screen clipboard
 [[ ! -f /tmp/screen-exchange ]] && touch /tmp/screen-exchange
+
+# tmux
+alias tmux='tmux -f $HOME/.tmux.$(uname).conf'
+if [ "$TMUX" != "" ]; then
+    tmux set-option status-bg colour$(($(echo -n $(whoami)@$(hostname) | sum | cut -f1 -d' ') % 8 + 8)) | cat > /dev/null
+fi
