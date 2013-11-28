@@ -8,15 +8,16 @@ encoding utf-8 utf-8
 hardstatus alwayslastline "%{= gk}[%m/%d %02c:%s] %{gW} %-w%{= wk}%n %t%{-}%+w %=%{gk}$USER@$HOSTNAME[$LANG] (%l) "
 startup_message off
 shelltitle "$ |bash"
-#shell -bash
+# shell -bash
 termcapinfo xterm* ti@:te@
 vbell off
 bindkey -m ' ' eval 'stuff " "' writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
 bindkey -m 'Y' eval 'stuff "Y"' writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
 bindkey -m 'W' eval 'stuff "W"' writebuf 'exec sh -c "pbcopy < /tmp/screen-exchange"'
 
-#split window
+# split window
 bind s eval split focus "select 0"
 bind ^s eval split focus "select 0"
 bind | eval "split -v" focus "select 0"
 bind ^| eval "split -v" focus "select 0"
+

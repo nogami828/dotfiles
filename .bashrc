@@ -24,6 +24,7 @@ function autojump {
     _z --add "$(pwd -P)"
 }
 export _Z_CMD=j
+export TERM=xterm-256color
 
 # hook after command 
 PROMPT_COMMAND='share_history && autojump'
@@ -72,7 +73,8 @@ alias ll="ls -l"
 alias be="bundle exec"
 alias gid="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
 alias aws="ssh -at mon.ad-stir.com ssh"
-
+alias e="emacs -nw"
+alias ec="emacsclient -n"
 # distribution
 if [ `uname` = "Darwin" ]; then
   alias zcat="gzcat"
@@ -94,6 +96,3 @@ fi
 
 # tmux
 alias tmux='tmux -f $HOME/.tmux.$(uname).conf'
-if [ "$TMUX" != "" ]; then
-    tmux set-option status-bg colour$(($(echo -n $(whoami)@$(hostname) | sum | cut -f1 -d' ') % 8 + 8)) | cat > /dev/null
-fi
