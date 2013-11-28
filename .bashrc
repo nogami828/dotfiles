@@ -74,7 +74,7 @@ alias be="bundle exec"
 alias gid="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
 alias aws="ssh -at mon.ad-stir.com ssh"
 alias e="emacs -nw"
-alias ec="emacsclient -n"
+alias ec="emacsclient"
 alias diff-highlight="/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"
 # distribution
 if [ `uname` = "Darwin" ]; then
