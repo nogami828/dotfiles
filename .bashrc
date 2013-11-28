@@ -38,7 +38,7 @@ stty stop undef
 [[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH 
 
 # PATH
-PATH=/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 # bash completion
 [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
@@ -75,6 +75,7 @@ alias gid="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(re
 alias aws="ssh -at mon.ad-stir.com ssh"
 alias e="emacs -nw"
 alias ec="emacsclient -n"
+alias diff-highlight="/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"
 # distribution
 if [ `uname` = "Darwin" ]; then
   alias zcat="gzcat"
