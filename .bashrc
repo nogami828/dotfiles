@@ -52,7 +52,8 @@ eval "$(plenv init -)"
 
 # git branch prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
-PS1='\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\]\[\033k\033\\\]\[\033[31m\]\$\[\033[00m\] '
+#PS1='\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\]\[\033k\033\\\]\[\033[31m\]\$\[\033[00m\] '
+PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
 
 if [[ -f ~/.nodebrew/nodebrew ]]; then
     export PATH=$HOME/.nodebrew/current/bin:$PATH
@@ -100,7 +101,7 @@ fi
 alias tmux='tmux -f $HOME/.tmux.$(uname).conf'
 
 # emacs server
-num=`ps aux|grep emacs\ -nw\ --daemon|wc -l`
+num=`ps aux|grep emacs\ -nw\ --daemon| grep -v grep | wc -l`
 if [ $num = 0 ]
 then
     emacs -nw --daemon
