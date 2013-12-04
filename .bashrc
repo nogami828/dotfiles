@@ -48,7 +48,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 # plenv
 eval "$(plenv init -)"
-[[ -d "$HOME/.plenv" ]] && eval "$(plenv init -);" && export export PATH=$HOME/.env/bin:$PATH
+[[ -d "$HOME/.plenv" ]] && eval "$(plenv init -);" && export export PATH=$HOME/.plenv/bin:$PATH
 
 # git branch prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
