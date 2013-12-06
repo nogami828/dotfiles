@@ -1,7 +1,6 @@
 # file
 umask 022
 ulimit -c 0
-
 # character code utf-8
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
@@ -31,9 +30,6 @@ PROMPT_COMMAND='share_history && autojump'
 shopt -u histappend
 export HISTSIZE=9999
 
-# invalid stop screen
-stty stop undef
-
 # android
 [[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH 
 
@@ -48,7 +44,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 # plenv
 eval "$(plenv init -)"
-[[ -d "$HOME/.plenv" ]] && eval "$(plenv init -);" && export export PATH=$HOME/.env/bin:$PATH
+[[ -d "$HOME/.plenv" ]] && eval "$(plenv init -);" && export export PATH=$HOME/.plenv/bin:$PATH
 
 # git branch prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
@@ -76,7 +72,7 @@ alias be="bundle exec"
 alias gid="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
 alias aws="ssh -at mon.ad-stir.com ssh"
 alias e="emacs -nw"
-alias ec="emacsclient"
+alias ec="emacsclient -n"
 alias diff-highlight="/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"
 # distribution
 if [ `uname` = "Darwin" ]; then
