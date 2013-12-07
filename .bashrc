@@ -1,7 +1,6 @@
 # file
 umask 022
 ulimit -c 0
-
 # character code utf-8
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
@@ -31,9 +30,6 @@ PROMPT_COMMAND='share_history && autojump'
 shopt -u histappend
 export HISTSIZE=9999
 
-# invalid stop screen
-stty stop undef
-
 # android
 [[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH 
 
@@ -52,7 +48,8 @@ eval "$(plenv init -)"
 
 # git branch prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
-PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
+#PS1='\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\]\[\033k\033\\\]\[\033[31m\]\$\[\033[00m\] '
+PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
 
 if [[ -f ~/.nodebrew/nodebrew ]]; then
     export PATH=$HOME/.nodebrew/current/bin:$PATH
@@ -75,7 +72,7 @@ alias be="bundle exec"
 alias gid="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
 alias aws="ssh -at mon.ad-stir.com ssh"
 alias e="emacs -nw"
-alias ec="emacsclient"
+alias ec="emacsclient -n"
 alias diff-highlight="/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"
 # distribution
 if [ `uname` = "Darwin" ]; then
@@ -100,8 +97,8 @@ fi
 alias tmux='tmux -f $HOME/.tmux.$(uname).conf'
 
 # emacs server
-num=`ps aux|grep emacs\ -nw\ --daemon|wc -l`
-if [ $num = 1 ]
+num=`ps aux|grep emacs\ -nw\ --daemon| grep -v grep | wc -l`
+if [ $num = 0 ]
 then
     emacs -nw --daemon
 else
