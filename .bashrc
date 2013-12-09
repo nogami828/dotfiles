@@ -96,11 +96,3 @@ fi
 # tmux
 alias tmux='tmux -f $HOME/.tmux.$(uname).conf'
 
-# emacs server
-num=`ps aux|grep emacs\ -nw\ --daemon| grep -v grep | wc -l`
-if [ $num = 0 ]
-then
-    emacs -nw --daemon
-else
-    echo 'Emacs is already running.'
-fi
