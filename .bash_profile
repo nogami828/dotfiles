@@ -1,4 +1,3 @@
-# invalid stop screen↲
 stty stop undef
 if [ -f /etc/profile ]; then
     PATH=""
