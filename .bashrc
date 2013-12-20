@@ -1,3 +1,6 @@
+# isearch 
+stty stop undef
+
 # file
 umask 022
 ulimit -c 0
@@ -34,7 +37,7 @@ export HISTSIZE=9999
 [[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH 
 
 # PATH
-export PATH=/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
+export PATH=./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 # bash completion
 [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
@@ -43,7 +46,6 @@ export PATH=/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 [[ -d "$HOME/.rbenv" ]] && eval "$(rbenv init -);" && export export PATH=$HOME/.rbenv/bin:$PATH
 
 # plenv
-eval "$(plenv init -)"
 [[ -d "$HOME/.plenv" ]] && eval "$(plenv init -);" && export export PATH=$HOME/.plenv/bin:$PATH
 
 # git branch prompt
@@ -51,9 +53,7 @@ eval "$(plenv init -)"
 #PS1='\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\]\[\033k\033\\\]\[\033[31m\]\$\[\033[00m\] '
 PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
 
-if [[ -f ~/.nodebrew/nodebrew ]]; then
-    export PATH=$HOME/.nodebrew/current/bin:$PATH
-fi
+ [[ -f ~/.nodebrew/nodebrew ]] &&     export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # mysql prompt
 MYSQL_PS1='\u@\h[\d]> '
@@ -84,10 +84,10 @@ elif [ `uname` = "Linux" ]; then
   alias e="emacs -nw"
   [[ -f /etc/bash_completion ]] && . /etc/bash_completion
   [[ -f ~/local/bin/z.sh ]] && . ~/local/bin/z.sh
+  alias pbcopy='xsel --clipboard --input'
 fi
 # for emacsclient
 [[ -d "$TMPDIR" ]] && export TMPDIR=`getconf DARWIN_USER_TEMP_DIR`
-
 
 
 # screen clipboard
@@ -96,3 +96,5 @@ fi
 # tmux
 alias tmux='tmux -f $HOME/.tmux.$(uname).conf'
 
+# mysqlenv
+[[  -d ~/.mysqlenv ]] && source ~/.mysqlenv/etc/bashrc
