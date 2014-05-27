@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 # isearch
+=======
+#perldoc 文字化け対策
+export LESS=mqeisz-2XR
+# isearch
+>>>>>>> 6762ace5d071bd0893b6be46e6995973e5313339
 stty stop undef
 
 # file
@@ -74,6 +80,7 @@ alias aws="ssh -at mon.ad-stir.com ssh"
 alias e="emacs -nw"
 alias ec="emacsclient -n"
 alias diff-highlight="/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"
+alias vagrant="/usr/bin/vagrant"
 # distribution
 if [ `uname` = "Darwin" ]; then
   alias zcat="gzcat"
