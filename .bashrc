@@ -62,6 +62,11 @@ MYSQL_PS1='\u@\h[\d]> '
 
 # global alias
 #alias mysql="mysql --pager='less -S'"
+alias ls="ls -GAF"
+alias ll="ls -l"
+if [ $(uname) = "Linux" ]; then
+    alias ls="ls --color=auto -AF"
+fi
 alias vi="vim"
 alias cp="cp -i"
 alias mv="mv -i -v"
