@@ -1,4 +1,4 @@
-# isearch 
+# isearch
 stty stop undef
 
 # file
@@ -28,15 +28,16 @@ function autojump {
 export _Z_CMD=j
 export TERM=xterm-256color
 
-# hook after command 
+# hook after command
 PROMPT_COMMAND='share_history && autojump'
 shopt -u histappend
 export HISTSIZE=9999
 
 # android
-[[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH 
+[[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH
 
 # PATH
+#export PATH=./local/bin:./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 export PATH=./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 # bash completion
@@ -48,10 +49,9 @@ export PATH=./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 # plenv
 [[ -d "$HOME/.plenv" ]] && eval "$(plenv init -);" && export export PATH=$HOME/.plenv/bin:$PATH
 
-# git branch prompt
-#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
-#PS1='\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\]\[\033k\033\\\]\[\033[31m\]\$\[\033[00m\] '
-PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\] \[\033k\033\\\] \[\033[31m\]\$\[\033[00m\] '
+
+# prompt
+. ~/.bash_prompt
 
  [[ -f ~/.nodebrew/nodebrew ]] &&     export PATH=$HOME/.nodebrew/current/bin:$PATH
 
@@ -59,7 +59,7 @@ PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[35m\]$(__git_ps1 "(%s)")\[\033[00m\] \[
 MYSQL_PS1='\u@\h[\d]> '
 
 # global alias
-alias mysql="mysql --pager='less -S'"
+#alias mysql="mysql --pager='less -S'"
 alias vi="vim"
 alias cp="cp -i"
 alias mv="mv -i -v"
