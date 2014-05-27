@@ -98,7 +98,6 @@ prompt_git() {
     printf "${WHITE} on ${style_branch}${git_info}"
 }
 
-
 # Set the terminal title to the current working directory
 PS1="\[\033]0;\w\007\]"
 # Build the prompt

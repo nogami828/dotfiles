@@ -34,6 +34,10 @@ export TERM=xterm-256color
 PROMPT_COMMAND='share_history && autojump'
 shopt -u histappend
 export HISTSIZE=9999
+export HISTCONTROL=ignoreboth:erasedups
+export HISTIGNORE="ls:ls *:ll:ll *:cd:cd -:pwd"
+
+
 
 # android
 [[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH
@@ -106,3 +110,6 @@ alias tmux='tmux -f $HOME/.tmux.$(uname).conf'
 
 # mysqlenv
 [[  -d ~/.mysqlenv ]] && source ~/.mysqlenv/etc/bashrc
+
+# cd typoしても予測
+shopt -s cdspell
