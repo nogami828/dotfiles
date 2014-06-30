@@ -57,7 +57,7 @@ export PATH=./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 
 # prompt
-. ~/.bash_prompt
+. $HOME/.bash_prompt
 
  [[ -f ~/.nodebrew/nodebrew ]] &&     export PATH=$HOME/.nodebrew/current/bin:$PATH
 
@@ -113,3 +113,36 @@ alias tmux='tmux -f $HOME/.tmux.$(uname).conf'
 
 # cd typoしても予測
 shopt -s cdspell
+
+bind '"\C-x\C-s":"peco-history\n"'
+
+function peco-snippets() {
+    local line
+    local snippet
+
+    if [ ! -e ~/.snippets ]; then
+        return 1
+    fi
+
+    line=$(grep -v "^#" ~/.snippets | peco --query "$READLINE_LINE" | sed "s/^\[.*\] *//g" | pbcopy)
+}
+bind -x '"\C-x\C-x":peco-snippets'
+
+function peco-gitcheckout() {
+    git checkout `git branch | peco`
+}
+bind -x '"\C-x\c":peco-gitcheckout'
+
+alias s='ssh $(grep "^Host" ~/.ssh/config|peco|awk "{print \$2}")'
+
+# function peco-history() {
+#     local line
+#     local snippet
+
+#     if [ ! -e ~/.snippets ]; then
+#         return 1
+#     fi
+
+#     line=$(grep -v "^#" ~/.snippets | peco --query "$READLINE_LINE" | sed "s/^\[.*\] *//g" | pbcopy)
+# }
+# bind -x '"\C-x\C-h":peco-snippets'
