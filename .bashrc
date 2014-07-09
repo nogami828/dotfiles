@@ -119,7 +119,7 @@ shopt -s cdspell
 eval "$(direnv hook bash)"
 
 peco_history() {
-    declare l=$(HISTTIMEFORMAT= history | history | awk '{for(i=2;i<NF;i++){printf("%s%s",$i,OFS=" ")}print $NF}'   |  peco --query "$READLINE_LINE")
+    declare l=$(HISTTIMEFORMAT=  history | awk '{for(i=2;i<NF;i++){printf("%s%s",$i,OFS=" ")}print $NF}'   |  peco --query "$READLINE_LINE")
     READLINE_LINE="$l"
     READLINE_POINT=${#l}
 }
