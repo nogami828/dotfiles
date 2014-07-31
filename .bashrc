@@ -142,7 +142,7 @@ function peco-snippets() {
 bind -x '"\C-x\C-x":peco-snippets'
 
 
-alias gco='git checkout `git branch | peco`'
+alias pco='git checkout `git branch | peco`'
 
 alias s='ssh $(grep "^Host" ~/.ssh/config|peco|awk "{print \$2}")'
 alias gd='cd $(ghq list -p | peco)'
@@ -157,3 +157,5 @@ cdf () {
                 echo 'No Finder window found' >&2
         fi
 }
+
+alias pec='ec `find . | peco`'
