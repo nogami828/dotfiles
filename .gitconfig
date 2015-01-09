@@ -12,9 +12,10 @@
     pager = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
     excludesfile = ~/.gitignore
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
     diff = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
 [tig "bind"]
     generic = g move-first-line
     generic = G move-last-line
+[ghq]
+	root = ~/dev/src
+    vcs = git

@@ -1,5 +1,6 @@
 *~
 *.elc
 .dropbox
-.emacs.d/ac-comphist.dat
-
+ac-comphist.dat
+.vim/.netrwhist
+.mc-lists.el
