@@ -82,7 +82,6 @@ alias ls="LSCOLORS=gxfxxxxxcxxxxxxxxxxxxx ls -G"
 alias ll="ls -l"
 alias be="bundle exec"
 alias gid="git for-each-ref --sort=taggerdate --format='%(authordate:short) %(refname:short) %(subject)' refs/tags"
-alias aws="ssh -at mon.ad-stir.com ssh"
 alias e="emacs -nw"
 alias ec="emacsclient -n"
 alias diff-highlight="/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"
@@ -118,13 +117,6 @@ shopt -s cdspell
 # direnv
 eval "$(direnv hook bash)"
 
-peco_history() {
-    declare l=$(HISTTIMEFORMAT=  history | LC_ALL=C sort -r |  awk '{for(i=2;i<NF;i++){printf("%s%s",$i,OFS=" ")}print $NF}'   |  peco --query "$READLINE_LINE")
-    READLINE_LINE="$l"
-    READLINE_POINT=${#l}
-}
-bind -x '"\C-r": peco_history'
-
 export GOPATH=$HOME/dev
 export PATH=$GOPATH/bin:$PATH
 function peco-snippets() {
@@ -158,4 +150,11 @@ cdf () {
         fi
 }
 
-alias pec='ec `find . | peco`'
+alias pec='ec `find . | grep -v .git | peco`'
+alias pcd='cd $(ghq list -p | peco)'
+peco_history() {
+    declare l=$(HISTTIMEFORMAT=  history | LC_ALL=C sort -r |  awk '{for(i=2;i<NF;i++){printf("%s%s",$i,OFS=" ")}print $NF}'   |  peco --query "$READLINE_LINE")
+    READLINE_LINE="$l"
+    READLINE_POINT=${#l}
+}
+bind -x '"\C-r": peco_history'
