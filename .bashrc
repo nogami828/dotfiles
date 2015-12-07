@@ -38,12 +38,7 @@ export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE="ls:ls *:ll:ll *:cd:cd -:pwd"
 
 
-
-# android
-[[ -d $HOME/Library/android-sdk-macosx/tools ]] && PATH=$HOME/Library/android-sdk-macosx/tools:$PATH
-
 # PATH
-#export PATH=./local/bin:./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 export PATH=~/.cask/bin:./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 
@@ -58,7 +53,9 @@ export PATH=~/.cask/bin:./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
 
 
 # prompt
+. $HOME/.git-prompt.sh
 . $HOME/.bash_prompt
+
 
  [[ -f ~/.nodebrew/nodebrew ]] &&     export PATH=$HOME/.nodebrew/current/bin:$PATH
 
