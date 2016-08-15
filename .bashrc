@@ -40,7 +40,11 @@ export HISTIGNORE="ls:ls *:ll:ll *:cd:cd -:pwd"
 
 # PATH
 export PATH=~/.cask/bin:./bin:/usr/local/sbin:/usr/local/bin:~/local/bin:$PATH
-
+# coreutils, findutils
+export PATH=$(brew --prefix coreutils)/libexec/gnubin:${PATH}
+export MANPATH=$(brew --prefix coreutils)/libexec/gnuman:${MANPATH}
+export PATH=$(brew --prefix findutils)/libexec/gnubin:$PATH
+export MANPATH=$(brew --prefix findutils)/libexec/gnuman:$MANPATH
 
 # bash completion
 [[ -f /usr/local/etc/bash_completion ]] && . /usr/local/etc/bash_completion
@@ -155,3 +159,7 @@ peco_history() {
     READLINE_POINT=${#l}
 }
 bind -x '"\C-r": peco_history'
+
+function md() {
+    mkdir -p "$@" && cd "$1"
+}
